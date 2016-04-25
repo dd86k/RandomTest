@@ -20,21 +20,22 @@ namespace RandomTest
         static void Main(string[] args)
         {
             {
-                int size = (Iterations * 4) + (Is64BitOperatingSystem ? 8 : 4);
-                Console.WriteLine($"Iterations: {Iterations} | Size: {size} Bytes [{size:X8}]");
+                // Approx. Size of the array = Length * 4 (32bits) + Object Reference
+                int size = (Iterations * sizeof(int)) + (Is64BitOperatingSystem ? 8 : 4);
+                Console.WriteLine($"Iterations: {Iterations} | Size: {size} Bytes [0x{size:X8}]");
             }
-            Console.WriteLine($"One item is {Math.Round(1m / Iterations * 100, 6)}%, lower values are better.");
+            Console.WriteLine($"One item is {Math.Round(1m / Iterations * 100, 4)}%, lower values are better.");
             Console.Write("Making array... ");
             w.Start();
             ra = new int[Iterations];
             w.Stop();
-            Console.WriteLine($"{w.ElapsedTicks} Ticks [0x{w.ElapsedTicks:X16}] ({System.Runtime.InteropServices.Marshal.SizeOf(ra)})");
+            Console.WriteLine($"{w.ElapsedTicks} Ticks [0x{w.ElapsedTicks:X8}]");
             Console.WriteLine();
 
             Console.WriteLine("-- Local Random --");
             {
                 w.Restart();
-                Random r = new Random(); // Seed is system clock
+                Random r = new Random();
                 for (int i = 0; i < Iterations; ++i) { ra[i] = r.Next(Iterations); }
                 w.Stop();
             }
