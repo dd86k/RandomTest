@@ -41,7 +41,7 @@ Making array... 73 Ticks [0x0000000000000049]
 And this chart has been arranged in markdown.
 
 | Method | Time | Ticks | Common value | Times appearing | Pourcentage frequency |
-| --- |
+| ----- |
 | Local Random | 00:00:00.0147533 |    48986 t. | 137182 | x     9 | 0,000900% |
 | New Random | 00:00:00.8060636 |  2676399 t. | 856469 | x 20429 | 2,042900% |
 | Static Random | 00:00:00.0158899 |    52760 t. | 195636 | x     8 | 0,000800% |
