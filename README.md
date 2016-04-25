@@ -42,12 +42,12 @@ And this chart has been arranged in markdown.
 
 | Method | Time | Ticks | Common value | Times appearing | Pourcentage frequency |
 | --- |
-| Local Random | 00:00:00.0147533 |    48986 t. | 137182 | x     9 | 0,000900%
-| New Random | 00:00:00.8060636 |  2676399 t. | 856469 | x 20429 | 2,042900%
-| Static Random | 00:00:00.0158899 |    52760 t. | 195636 | x     8 | 0,000800%
-| Local CryptoRandom | 00:00:00.2582853 |   857593 t. | 933920 | x     9 | 0,000900%
-| Static CryptoRandom | 00:00:00.2561075 |   850362 t. | 223548 | x     9 | 0,000900%
-| Local PCGRandom(0, 0) | 00:00:00.0730571 |   242574 t. |  48576 | x 10877 | 1,087700%
-| Local PCGRandom(inits) | 00:00:00.0722168 |   239784 t. | 483648 | x 10795 | 1,079500%
-| Static PCGRandom(0, 0) | 00:00:00.0711389 |   236205 t. |  48576 | x 10877 | 1,087700%
-| Static PCGRandom(inits) | 00:00:00.0708272 |   235170 t. | 483648 | x 10795 | 1,079500%
+| Local Random | 00:00:00.0147533 |    48986 t. | 137182 | x     9 | 0,000900% |
+| New Random | 00:00:00.8060636 |  2676399 t. | 856469 | x 20429 | 2,042900% |
+| Static Random | 00:00:00.0158899 |    52760 t. | 195636 | x     8 | 0,000800% |
+| Local CryptoRandom | 00:00:00.2582853 |   857593 t. | 933920 | x     9 | 0,000900% |
+| Static CryptoRandom | 00:00:00.2561075 |   850362 t. | 223548 | x     9 | 0,000900% |
+| Local PCGRandom(0, 0) | 00:00:00.0730571 |   242574 t. |  48576 | x 10877 | 1,087700% |
+| Local PCGRandom(inits) | 00:00:00.0722168 |   239784 t. | 483648 | x 10795 | 1,079500% |
+| Static PCGRandom(0, 0) | 00:00:00.0711389 |   236205 t. |  48576 | x 10877 | 1,087700% |
+| Static PCGRandom(inits) | 00:00:00.0708272 |   235170 t. | 483648 | x 10795 | 1,079500% |
