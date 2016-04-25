@@ -10,8 +10,8 @@ namespace RandomTest
 
         static Random sr;
         static CryptoRandom csr;
-        private static PCGRandom spcgr;
-        private static PCGRandom spcgri;
+        static PCGRandom spcgr;
+        static PCGRandom spcgri;
 
         static Stopwatch w = new Stopwatch();
         static int[] ra;

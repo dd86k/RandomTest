@@ -33,7 +33,7 @@ public class PCGRandom
 
     public int Next(uint MaxValue)
     {
-        uint threshold = (uint)((0 - (ulong)MaxValue) % (ulong)MaxValue);
+        uint threshold = (uint)((0 - (ulong)MaxValue) % MaxValue);
         for (;;)
         {
             uint r = pcg32_random();
