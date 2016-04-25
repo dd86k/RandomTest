@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using static System.Environment;
 
 namespace RandomTest
 {
@@ -18,83 +19,104 @@ namespace RandomTest
 
         static void Main(string[] args)
         {
-            Console.WriteLine($"Iterations: {Iterations}");
+            {
+                int size = (Iterations * 4) + (Is64BitOperatingSystem ? 8 : 4);
+                Console.WriteLine($"Iterations: {Iterations} | Size: {size} Bytes [{size:X8}]");
+            }
             Console.WriteLine($"One item is {Math.Round(1m / Iterations * 100, 6)}%, lower values are better.");
             Console.Write("Making array... ");
             w.Start();
             ra = new int[Iterations];
             w.Stop();
-            Console.WriteLine($"{w.ElapsedTicks} Ticks [0x{w.ElapsedTicks:X16}]");
+            Console.WriteLine($"{w.ElapsedTicks} Ticks [0x{w.ElapsedTicks:X16}] ({System.Runtime.InteropServices.Marshal.SizeOf(ra)})");
             Console.WriteLine();
 
             Console.WriteLine("-- Local Random --");
-            w.Restart();
-            Random r = new Random(); // Seed is system clock
-            for (int i = 0; i < Iterations; ++i) { ra[i] = r.Next(Iterations); }
-            w.Stop();
+            {
+                w.Restart();
+                Random r = new Random(); // Seed is system clock
+                for (int i = 0; i < Iterations; ++i) { ra[i] = r.Next(Iterations); }
+                w.Stop();
+            }
             ws();
 
             Console.WriteLine("-- New Random --");
             ra = new int[Iterations];
-            w.Restart();
-            for (int i = 0; i < Iterations; ++i) { ra[i] = new Random().Next(Iterations); }
-            w.Stop();
+            {
+                w.Restart();
+                for (int i = 0; i < Iterations; ++i) { ra[i] = new Random().Next(Iterations); }
+                w.Stop();
+            }
             ws();
 
             Console.WriteLine("-- Static Random --");
             ra = new int[Iterations];
-            w.Restart();
-            sr = new Random();
-            for (int i = 0; i < Iterations; ++i) { ra[i] = sr.Next(Iterations); }
-            w.Stop();
+            {
+                w.Restart();
+                sr = new Random();
+                for (int i = 0; i < Iterations; ++i) { ra[i] = sr.Next(Iterations); }
+                w.Stop();
+            }
             ws();
 
             Console.WriteLine("-- Local CryptoRandom --");
             ra = new int[Iterations];
-            w.Restart();
-            CryptoRandom cr = new CryptoRandom();
-            for (int i = 0; i < Iterations; ++i) { ra[i] = cr.Next(Iterations); }
-            w.Stop();
+            {
+                w.Restart();
+                CryptoRandom cr = new CryptoRandom();
+                for (int i = 0; i < Iterations; ++i) { ra[i] = cr.Next(Iterations); }
+                w.Stop();
+            }
             ws();
 
             Console.WriteLine("-- Static CryptoRandom --");
             ra = new int[Iterations];
-            w.Restart();
-            csr = new CryptoRandom();
-            for (int i = 0; i < Iterations; ++i) { ra[i] = csr.Next(Iterations); }
-            w.Stop();
+            {
+                w.Restart();
+                csr = new CryptoRandom();
+                for (int i = 0; i < Iterations; ++i) { ra[i] = csr.Next(Iterations); }
+                w.Stop();
+            }
             ws();
 
             Console.WriteLine("-- Local PCGRandom(0, 0) --");
             ra = new int[Iterations];
-            w.Restart();
-            PCGRandom pcgr = new PCGRandom(0, 0);
-            for (int i = 0; i < Iterations; ++i) { ra[i] = pcgr.Next(Iterations); }
-            w.Stop();
+            {
+                w.Restart();
+                PCGRandom pcgr = new PCGRandom(0, 0);
+                for (int i = 0; i < Iterations; ++i) { ra[i] = pcgr.Next(Iterations); }
+                w.Stop();
+            }
             ws();
 
             Console.WriteLine("-- Local PCGRandom(inits) --");
             ra = new int[Iterations];
-            w.Restart();
-            PCGRandom pcgri = new PCGRandom();
-            for (int i = 0; i < Iterations; ++i) { ra[i] = pcgri.Next(Iterations); }
-            w.Stop();
+            {
+                w.Restart();
+                PCGRandom pcgri = new PCGRandom();
+                for (int i = 0; i < Iterations; ++i) { ra[i] = pcgri.Next(Iterations); }
+                w.Stop();
+            }
             ws();
 
             Console.WriteLine("-- Static PCGRandom(0, 0) --");
             ra = new int[Iterations];
-            w.Restart();
-            spcgr = new PCGRandom(0, 0);
-            for (int i = 0; i < Iterations; ++i) { ra[i] = spcgr.Next(Iterations); }
-            w.Stop();
+            {
+                w.Restart();
+                spcgr = new PCGRandom(0, 0);
+                for (int i = 0; i < Iterations; ++i) { ra[i] = spcgr.Next(Iterations); }
+                w.Stop();
+            }
             ws();
 
             Console.WriteLine("-- Static PCGRandom(inits) --");
             ra = new int[Iterations];
-            w.Restart();
-            spcgri = new PCGRandom();
-            for (int i = 0; i < Iterations; ++i) { ra[i] = spcgri.Next(Iterations); }
-            w.Stop();
+            {
+                w.Restart();
+                spcgri = new PCGRandom();
+                for (int i = 0; i < Iterations; ++i) { ra[i] = spcgri.Next(Iterations); }
+                w.Stop();
+            }
             ws();
 
             Console.ReadLine();
@@ -132,7 +154,7 @@ namespace RandomTest
                 }
             }
             
-            decimal m = Math.Round((decimal)t / Iterations * 100, 6);
+            decimal m = Math.Round((decimal)t / Iterations * 100, 4);
             return $"{c,6} | x{t,6} | {m}%";
         }
     }
