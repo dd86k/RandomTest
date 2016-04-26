@@ -33,21 +33,23 @@ No optimization, do not prefer 32-bit.
 
 At first, this is the default behavior.
 ```
-Iterations: 1000000
-One item is 0,000100%, lower values are better (Except for Common value)
-Making array... 73 Ticks [0x0000000000000049]
+Iterations: 1000000 | Size: 4000008 Bytes [0x003D0908]
+One item is 0,0001%, lower values are better.
+Making array... 46 Ticks [0x0000002E]
 ```
 
 And this chart has been arranged in markdown.
 
+Note that there is no point to pin-point flaws here.
+
 | Method | Time | Ticks | Common value | Times appearing | Pourcentage frequency |
 | --- | --- | --- | --- | --- | --- |
-| Local Random | 00:00:00.0147533 |    48986 t. | 137182 | x     9 | 0,000900% |
-| New Random | 00:00:00.8060636 |  2676399 t. | 856469 | x 20429 | 2,042900% |
-| Static Random | 00:00:00.0158899 |    52760 t. | 195636 | x     8 | 0,000800% |
-| Local CryptoRandom | 00:00:00.2582853 |   857593 t. | 933920 | x     9 | 0,000900% |
-| Static CryptoRandom | 00:00:00.2561075 |   850362 t. | 223548 | x     9 | 0,000900% |
-| Local PCGRandom(0, 0) | 00:00:00.0730571 |   242574 t. |  48576 | x 10877 | 1,087700% |
-| Local PCGRandom(inits) | 00:00:00.0722168 |   239784 t. | 483648 | x 10795 | 1,079500% |
-| Static PCGRandom(0, 0) | 00:00:00.0711389 |   236205 t. |  48576 | x 10877 | 1,087700% |
-| Static PCGRandom(inits) | 00:00:00.0708272 |   235170 t. | 483648 | x 10795 | 1,079500% |
+| Local Random | 00:00:00.0143557 |    47666 t. | 636736 | x    10 | 0,0010%
+| New Random | 00:00:00.8103200 |  2690534 t. | 685628 | x 20258 | 2,0258%
+| Static Random | 00:00:00.0148756 |    49392 t. | 346275 | x     9 | 0,0009%
+| Local CryptoRandom | 00:00:00.2521278 |   837149 t. |  92896 | x     8 | 0,0008%
+| Static CryptoRandom | 00:00:00.2405163 |   798595 t. | 874405 | x     9 | 0,0009%
+| Local PCGRandom(0, 0) | 00:00:00.0716906 |   238037 t. |  48576 | x 10877 | 1,0877%
+| Local PCGRandom(inits) | 00:00:00.0744442 |   247180 t. | 870912 | x 10774 | 1,0774%
+| Static PCGRandom(0, 0) | 00:00:00.0709786 |   235673 t. |  48576 | x 10877 | 1,0877%
+| Static PCGRandom(inits) | 00:00:00.0712994 |   236738 t. | 217728 | x 10903 | 1,0903%
