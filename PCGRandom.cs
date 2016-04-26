@@ -6,11 +6,6 @@ using static System.DateTime;
 /// </summary>
 public class PCGRandom
 {
-    static ulong[] INITIALIZER =
-    {
-        0x853c49e6748fea9bUL, 0xda3e39cb94b95bdbUL
-    };
-
     ulong state;
     ulong inc;
 

@@ -27,20 +27,37 @@ This is how it goes down (tl;dr):
 
 ## Results
 
-Here is the result of a test over 1'000'000 iterations. (25th April 2016)
-
 No optimization, do not prefer 32-bit.
 
-At first, this is the default behavior.
+### Small scale
+
+26th April 2016
+
+```
+Iterations: 100 | Size: 408 Bytes [0x00000198]
+One item is 1,00%, lower values are better.
+Making array... 13 Ticks [0x0000000D]
+```
+
+| Local Random | 00:00:00.0000066 |       22 t. |     53 | x     4 | 4,00%
+| New Random | 00:00:00.0000888 |      295 t. |     81 | x   100 | 100%
+| Static Random | 00:00:00.0000027 |        9 t. |     53 | x     4 | 4,00%
+| Local CryptoRandom | 00:00:00.0052783 |    17526 t. |     23 | x     7 | 7,00%
+| Static CryptoRandom | 00:00:00.0000427 |      142 t. |     53 | x     3 | 3,00%
+| Local PCGRandom(0, 0) | 00:00:00.0003764 |     1250 t. |     32 | x     7 | 7,00%
+| Local PCGRandom(inits) | 00:00:00.0032487 |    10787 t. |     32 | x     8 | 8,00%
+| Static PCGRandom(0, 0) | 00:00:00.0000057 |       19 t. |     32 | x     7 | 7,00%
+| Static PCGRandom(inits) | 00:00:00.0000072 |       24 t. |      4 | x     8 | 8,00%
+
+### Large scale
+
+26th April 2016
+
 ```
 Iterations: 1000000 | Size: 4000008 Bytes [0x003D0908]
 One item is 0,0001%, lower values are better.
 Making array... 46 Ticks [0x0000002E]
 ```
-
-And this chart has been arranged in markdown.
-
-Note that there is no point to pin-point flaws here.
 
 | Method | Time | Ticks | Common value | Times appearing | Pourcentage frequency |
 | --- | --- | --- | --- | --- | --- |

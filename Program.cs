@@ -7,7 +7,7 @@ namespace RandomTest
 {
     static class Program
     {
-        const int Iterations = 1000000;
+        const int Iterations = 100;
 
         static Random sr;
         static CryptoRandom csr;
