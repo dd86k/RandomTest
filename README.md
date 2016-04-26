@@ -39,6 +39,8 @@ One item is 1,00%, lower values are better.
 Making array... 13 Ticks [0x0000000D]
 ```
 
+| Method | Time | Ticks | Common value | Times appearing | Pourcentage frequency |
+| --- | --- | --- | --- | --- | --- |
 | Local Random | 00:00:00.0000066 |       22 t. |     53 | x     4 | 4,00%
 | New Random | 00:00:00.0000888 |      295 t. |     81 | x   100 | 100%
 | Static Random | 00:00:00.0000027 |        9 t. |     53 | x     4 | 4,00%
