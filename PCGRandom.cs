@@ -1,4 +1,7 @@
-﻿/// <summary>
+﻿using static System.Environment;
+using static System.DateTime;
+
+/// <summary>
 /// Quickly written by pt300 and modified afterwards by guitarxhero.
 /// </summary>
 public class PCGRandom
@@ -8,10 +11,11 @@ public class PCGRandom
         0x853c49e6748fea9bUL, 0xda3e39cb94b95bdbUL
     };
 
-    private ulong state;
-    private ulong inc;
+    ulong state;
+    ulong inc;
 
-    public PCGRandom() : this(INITIALIZER[0], INITIALIZER[1]) { }
+    public PCGRandom() :
+        this((ulong)TickCount, (ulong)(TickCount * Now.Ticks)) { }
 
     public PCGRandom(ulong seed, ulong seq)
     {
